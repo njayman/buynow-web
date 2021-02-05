@@ -1,0 +1,43 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  background: #ffee00;
+  padding: 10px;
+  margin: 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+form {
+  margin-top: 80px;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.product {
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid black;
+}
+.product p {
+  padding: 5px;
+}
