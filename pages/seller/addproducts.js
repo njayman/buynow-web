@@ -13,6 +13,7 @@ export default function AddProducts() {
         values
       );
       console.log(data);
+      alert(data.message);
     } catch (error) {
       alert(error.message);
     }

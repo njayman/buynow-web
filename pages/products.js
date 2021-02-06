@@ -23,8 +23,8 @@ export default function SellerPoducts() {
       <Navbar />
       <div style={{ marginTop: "80px" }}>
         {products?.map((product, id) => (
-          <div className="product" key={id + 1}>
-            <h1>Product {id}</h1>
+          <div className="product" key={id}>
+            <h1>Product {id + 1}</h1>
             <p>Name: {product.name}</p>
             <p>Description: {product.description}</p>
             <p>Warrenty poicy: {product.policy.warrenty}</p>
