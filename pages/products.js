@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import MyLayout from "../components/Layout";
 import Image from "next/image";
 import { FaHeart } from "react-icons/fa";
-import { Accordion, Card, Button } from "react-bootstrap";
-
-export default function SellerPoducts({ addToCart }) {
+// import { Accordion, Card, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/actions/cartaction";
+export default function SellerPoducts() {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
   const getProducts = async () => {
     try {
       const { data } = await axios.get(
@@ -126,7 +128,7 @@ export default function SellerPoducts({ addToCart }) {
                     id={product._id}
                     style={{ marginTop: "10px" }}
                     className="btn"
-                    onClick={(e) => addToCart(e.target.id)}
+                    onClick={(e) => dispatch(addToCart(e.target.id))}
                   >
                     Add to card
                   </button>

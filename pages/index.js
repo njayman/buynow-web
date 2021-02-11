@@ -1,8 +1,10 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { Button, Container, CardDeck, Card } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
 import MyLayout from "../components/Layout";
 export default function Home() {
+  const router = useRouter();
   return (
     <MyLayout>
       <Head>
@@ -29,7 +31,7 @@ export default function Home() {
         >
           <p>Discovery a new universe</p>
           <p>with these gaming products</p>
-          <Button variant="light">
+          <Button variant="light" onClick={() => router.push("/products")}>
             Find Out <FaArrowRight />
           </Button>
         </Container>

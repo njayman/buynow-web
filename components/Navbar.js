@@ -97,7 +97,7 @@ export default function NavBar({ setShowcart }) {
                   pill
                   style={{
                     background: "#F6D200",
-                    color: "white",
+                    color: "black",
                     position: "absolute",
                   }}
                 >
