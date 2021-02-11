@@ -2,9 +2,11 @@ import { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import jwt_decode from "jwt-decode";
-
+import { useDispatch } from "react-redux";
+import setCurrentUser from "../redux/actions/userAction";
 export default function Login({ login }) {
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const hSubmit = async (values) => {
     setLoading(true);
@@ -16,7 +18,7 @@ export default function Login({ login }) {
       if (data.success) {
         var decoded = JSON.stringify(jwt_decode(data.token));
         localStorage.setItem("user", decoded);
-        login();
+        dispatch(setCurrentUser(decoded));
       } else {
         alert(data.message);
       }

@@ -5,8 +5,8 @@ import {
   FaSearch,
   FaShoppingCart,
   FaUser,
+  FaUserSlash,
 } from "react-icons/fa";
-// FaUserSlash,
 
 import {
   Navbar,
@@ -20,10 +20,16 @@ import {
   Badge,
 } from "react-bootstrap";
 import Image from "next/image";
-
-export default function NavBar({ setShowcart, isAuthenticated, cart }) {
+import { useSelector, useDispatch } from "react-redux";
+import logoutUser from "../redux/actions/logoutaction";
+export default function NavBar({ setShowcart }) {
+  const dispatch = useDispatch();
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
+  const { items } = useSelector((state) => state.cart);
+  console.log(user);
   return (
     <>
+      {/* {isAuthenticated.toString()} */}
       <Navbar className="primarynav">
         <Container>
           <Link href="/">
@@ -67,16 +73,16 @@ export default function NavBar({ setShowcart, isAuthenticated, cart }) {
                 <FaUser style={{ color: "white" }} />
               </Nav.Link>
             </Link>
-            {/* {!isAuthenticated ? (
+            {isAuthenticated ? (
               <Link href="#">
-                <Nav.Link href="#">
-                  <FaUserSlash
-                    onClick={() => logout()}
-                    style={{ color: "white" }}
-                  />
-                </Nav.Link>
+                <div
+                  className="nav-link"
+                  onClick={() => dispatch(logoutUser())}
+                >
+                  <FaUserSlash style={{ color: "white" }} />
+                </div>
               </Link>
-            ) : null} */}
+            ) : null}
             <Nav.Link href="#" onClick={() => setShowcart(true)}>
               <FaShoppingCart
                 style={{
@@ -95,7 +101,7 @@ export default function NavBar({ setShowcart, isAuthenticated, cart }) {
                     position: "absolute",
                   }}
                 >
-                  {Number(cart?.length + 1)}
+                  {Number(items?.length)}
                 </Badge>
               </sub>
             </Nav.Link>
