@@ -1,0 +1,84 @@
+@import "~bootstrap/scss/bootstrap.scss";
+.primarynav {
+  background: black;
+  .nav-down {
+    button {
+      background: white !important;
+      color: black;
+      border-color: #f6d200 !important;
+    }
+  }
+  .dropdown-toggle {
+    background: white;
+    color: black;
+  }
+}
+.secondarynav {
+  padding: 0;
+  margin: 0;
+  background-color: #f6d200;
+  color: black;
+  .nav-link {
+    padding: 5px 10px 5px 0px !important;
+    margin: 0 !important;
+    color: black !important;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    margin: 10px 30px 10px 0px;
+  }
+}
+a {
+  text-decoration: none;
+}
+
+button {
+  background: #f6d200 !important;
+  color: black !important;
+  border-color: #f6d200 !important;
+}
+
+.cart {
+  height: 100vh;
+  background-color: black;
+  width: 350px;
+  top: 0;
+  right: 0;
+  margin: 0;
+  position: absolute;
+  z-index: 10000 !important;
+  .modal-header {
+    background-color: black;
+    color: white;
+    border: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    .modal-title {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 25px;
+    }
+  }
+}
+
+.footer-list {
+  padding-top: 20px;
+  li {
+    list-style: none;
+    color: white;
+  }
+}
+
+.product-card-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
