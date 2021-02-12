@@ -22,7 +22,7 @@ import {
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import logoutUser from "../redux/actions/logoutaction";
-export default function NavBar({ setShowcart }) {
+export default function NavBar({ setShowcart, setSearch }) {
   const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.auth);
   const { items } = useSelector((state) => state.cart);
@@ -56,7 +56,11 @@ export default function NavBar({ setShowcart }) {
               <Dropdown.Item href="#">Category 1</Dropdown.Item>
               <Dropdown.Item href="#">Category 1</Dropdown.Item>
             </DropdownButton>
-            <FormControl type="text" placeholder="What are you looking for?" />
+            <FormControl
+              type="text"
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="What are you looking for?"
+            />
             <Button style={{ borderRadius: "0" }}>
               <FaSearch />
             </Button>

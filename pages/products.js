@@ -1,29 +1,16 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
 // import Navbar from "../components/Navbar";
 import MyLayout from "../components/Layout";
 import Image from "next/image";
 import { FaHeart } from "react-icons/fa";
 // import { Accordion, Card, Button } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/actions/cartaction";
 export default function SellerPoducts() {
-  const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-  const getProducts = async () => {
-    try {
-      const { data } = await axios.get(
-        `${process.env.AXIOS_BASE_URL}/admin/products/get`
-      );
-      console.log(data.products);
-      setProducts(data.products);
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const { products } = useSelector((state) => state.content);
+
   return (
     <MyLayout>
       <div className="container">

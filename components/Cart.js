@@ -7,21 +7,9 @@ import { FaCross, FaTimes } from "react-icons/fa";
 import { removeFromCart } from "../redux/actions/cartaction";
 export default function Cart({ showCart, setShowcart }) {
   const { items } = useSelector((state) => state.cart);
-  const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-  const getProducts = async () => {
-    try {
-      const { data } = await axios.get(
-        `${process.env.AXIOS_BASE_URL}/admin/products/get`
-      );
-      setProducts(data.products);
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const { products } = useSelector((state) => state.content);
+
   return (
     <Modal.Dialog show={showCart} className="cart">
       <Modal.Header style={{ position: "relative" }}>
@@ -52,20 +40,22 @@ export default function Cart({ showCart, setShowcart }) {
               .map((product, id) => (
                 <div
                   className="card row"
-                  style={{ margin: "5px", position: "relative" }}
+                  style={{ margin: "10px 5px 5px 10px", position: "relative" }}
                 >
                   <FaTimes
                     id={product._id}
                     onClick={(e) => dispatch(removeFromCart(e.target.id))}
                     style={{
                       position: "absolute",
-                      top: "0",
-                      right: "0",
-                      color: "black",
+                      top: "-7",
+                      right: "-7",
+                      color: "white",
+                      padding: "1px",
                       height: "15px",
                       width: "15px",
                       borderRadius: "25px",
-                      background: "white",
+                      background: "black",
+                      border: "1px solid white",
                     }}
                   />
                   <div className="col-4">
