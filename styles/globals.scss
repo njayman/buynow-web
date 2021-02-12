@@ -88,3 +88,70 @@ button {
   justify-content: center;
   text-align: center;
 }
+
+.card-deck {
+  .card {
+    margin: 0;
+
+    .commitment-icon {
+      padding: 10px;
+      background-color: #f6d200;
+      margin: auto;
+    }
+    .commitment-cards {
+      .title {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 19px;
+        margin: 10px;
+      }
+      .description {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        color: #bdbdbd;
+        margin: 10px;
+      }
+    }
+  }
+}
+
+.cta-categories {
+  .category {
+    cursor: pointer;
+    text-align: center;
+    p {
+      margin: 10px;
+    }
+  }
+  .cat-nav {
+    padding: 10px;
+    border-radius: 50%;
+    border: 0.2px solid #88888865;
+    box-shadow: 5px 5px 3px #888888;
+  }
+  .circle {
+    position: relative;
+    padding: 60px;
+    background: #f6d20066;
+    border-radius: 50%;
+    box-shadow: 12px 12px 6px #88888880;
+  }
+  .logo {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+  }
+}
+
+.cta-title {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+}
