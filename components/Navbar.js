@@ -18,6 +18,9 @@ import {
   Dropdown,
   Container,
   Badge,
+  OverlayTrigger,
+  Popover,
+  ListGroup,
 } from "react-bootstrap";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
@@ -66,8 +69,37 @@ export default function NavBar({ setShowcart, setSearch }) {
             </Button>
           </InputGroup>
           <Nav>
+            <Dropdown>
+              <Dropdown.Toggle className="lang-down my-2 mx-2" as={Nav.Item}>
+                English/USD
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu style={{ padding: "0", margin: "0" }}>
+                <Dropdown.Item as={ListGroup.Item}>English/USD</Dropdown.Item>
+                <Dropdown.Item as={ListGroup.Item}>Chinese/FEN</Dropdown.Item>
+                <Dropdown.Item as={ListGroup.Item}>French/EUR</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
             <Nav.Link href="#">
-              <FaBell style={{ color: "white" }} />
+              <OverlayTrigger
+                trigger="click"
+                placement="bottom"
+                overlay={
+                  <Popover>
+                    <Popover.Title
+                      as="h3"
+                      style={{ background: "black", color: "white" }}
+                    >
+                      Notifications
+                    </Popover.Title>
+                    <Popover.Content>
+                      <strong>Everything OK! Nothing to show</strong>
+                    </Popover.Content>
+                  </Popover>
+                }
+              >
+                <FaBell style={{ color: "white" }} />
+              </OverlayTrigger>
             </Nav.Link>
             <Nav.Link href="#">
               <FaHeart style={{ color: "white" }} />
